@@ -9,7 +9,7 @@ export function ListTile(props) {
 
   return (
     <div
-      onClick={() => navigate(`/detail/${props.id}`)}
+      onClick={() => navigate(`/detail/${props.name}`)} //TODO: id
       className="list-tile"
       onMouseEnter={() => showActionsState(true)}
       onMouseLeave={() => showActionsState(false)}
