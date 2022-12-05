@@ -1,26 +1,32 @@
-import { Link } from "react-router-dom";
-import logo from "./../logo.svg";
+import { ListTile } from "../list-tile/ListTile";
 import "./Home.css";
 
 export function Home() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+  const items = [
+    {
+      name: "Item 1",
+      description: "Lorem ipsum dolor sit ament",
+    },
+    {
+      name: "Item 2",
+      description: "Lorem ipsum dolor sit ament",
+    },
+    {
+      name: "Item 3",
+      description: "Lorem ipsum dolor sit ament",
+    },
+  ];
 
-        <Link to="/detail/AAAAA">DETTAGLIOO</Link>
-      </header>
+  return (
+    <div className="page">
+      <div className="title-wrapper">
+        <h1 className="title">ToDo App</h1>
+      </div>
+      <div className="task-wrapper">
+        {items.map((i) => (
+          <ListTile name={i.name} description={i.description} />
+        ))}
+      </div>
     </div>
   );
 }
