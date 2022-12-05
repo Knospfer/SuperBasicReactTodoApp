@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 import "./ListTile.css";
 
 export function ListTile(props) {
+  const navigate = useNavigate();
   const [showActions, showActionsState] = useState(false);
 
   return (
     <div
+      onClick={() => navigate(`/detail/${props.id}`)}
       className="list-tile"
       onMouseEnter={() => showActionsState(true)}
       onMouseLeave={() => showActionsState(false)}
