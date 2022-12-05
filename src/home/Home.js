@@ -23,8 +23,8 @@ export function Home() {
         <h1 className="title">ToDo App</h1>
       </div>
       <div className="task-wrapper">
-        {items.map((i) => (
-          <ListTile name={i.name} description={i.description} />
+        {items.map((i, index) => (
+          <ListTile name={i.name} description={i.description} key={index} />
         ))}
       </div>
     </div>
