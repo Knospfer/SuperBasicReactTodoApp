@@ -9,7 +9,6 @@ export function ListTile(props) {
 
   return (
     <div
-      onClick={() => navigate(`/detail/${props.name}`)} //TODO: id
       className="list-tile"
       onMouseEnter={() => showActionsState(true)}
       onMouseLeave={() => showActionsState(false)}
@@ -21,7 +20,12 @@ export function ListTile(props) {
       </div>
       {showActions && (
         <>
-          <AiOutlineEdit fontSize={"24px"} color={"white"} opacity={0.65} />
+          <AiOutlineEdit
+            fontSize={"24px"}
+            color={"white"}
+            opacity={0.65}
+            onClick={() => navigate(`/detail/${props.name}`)}
+          />
           <AiOutlineDelete opacity={0.8} fontSize={"24px"} color={"#ff4164"} />
         </>
       )}
