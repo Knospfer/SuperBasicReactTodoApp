@@ -27,7 +27,7 @@ export function ListTile(props) {
             color={"white"}
             opacity={0.65}
             cursor="pointer"
-            onClick={() => navigate(`/detail/${props.name}`)}
+            onClick={() => navigate(`/detail/${props.id}`)}
           />
           <AiOutlineDelete
             onClick={() => store.dispatch(deleteTodo(props.id))}

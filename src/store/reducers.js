@@ -25,8 +25,12 @@ export function rootReducer(state = initialState, action) {
     return { ...state, todoList: [...state.todoList, action.payload] };
   }
   if (action.type === UPDATE_TODO) {
-    const { index, newTodo } = action.payload;
-    return { ...state, todoList: state.todoList.splice(index, 1, newTodo) };
+    return {
+      ...state,
+      todoList: state.todoList.map((todo) => {
+        return todo.id === action.payload.id ? action.payload : todo;
+      }),
+    };
   }
   if (action.type === DELETE_TODO) {
     return {
