@@ -3,17 +3,17 @@ import { ADD_TODO, DELETE_TODO, UPDATE_TODO } from "./actions";
 const initialState = {
   todoList: [
     {
-      id: "1",
+      id: "0",
       name: "Item 1",
       description: "Lorem ipsum dolor sit ament",
     },
     {
-      id: "2",
+      id: "1",
       name: "Item 2",
       description: "Lorem ipsum dolor sit ament",
     },
     {
-      id: "3",
+      id: "2",
       name: "Item 3",
       description: "Lorem ipsum dolor sit ament",
     },
@@ -22,7 +22,12 @@ const initialState = {
 
 export function rootReducer(state = initialState, action) {
   if (action.type === ADD_TODO) {
-    return { ...state, todoList: [...state.todoList, action.payload] };
+    const newTodo = {
+      id: state.todoList.length.toString(),
+      ...action.payload,
+    };
+
+    return { ...state, todoList: [...state.todoList, newTodo] };
   }
   if (action.type === UPDATE_TODO) {
     return {

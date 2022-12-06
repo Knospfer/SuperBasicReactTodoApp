@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { IoChevronBackOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { updateTodo } from "../../store/actions";
+import { addTodo, updateTodo } from "../../store/actions";
 import { store } from "../../store/store";
 import "./Detail.css";
 
@@ -27,13 +27,16 @@ export function Detail() {
     if (!name || !description) return buildErrorMessage();
 
     navigate(-1);
-    store.dispatch(
-      updateTodo({
-        ...currentItem,
-        name,
-        description,
-      })
-    );
+
+    const action = !!currentItem
+      ? updateTodo({
+          ...currentItem,
+          name,
+          description,
+        })
+      : addTodo({ name, description });
+
+    store.dispatch(action);
   };
 
   const buildErrorMessage = () => {
@@ -57,19 +60,22 @@ export function Detail() {
       </div>
 
       <form className="page-body" onSubmit={validateForm}>
-        <input
-          className="todo-input"
-          placeholder="Name"
-          defaultValue={currentItem?.name}
-          ref={nameRef}
-        />
-
-        <input
-          className="todo-input"
-          placeholder="Description"
-          defaultValue={currentItem?.description}
-          ref={descriptionRef}
-        />
+        <div className="input-wrapper">
+          <input
+            className="todo-input"
+            placeholder="Name"
+            defaultValue={currentItem?.name}
+            ref={nameRef}
+          />
+        </div>
+        <div className="input-wrapper">
+          <input
+            className="todo-input"
+            placeholder="Description"
+            defaultValue={currentItem?.description}
+            ref={descriptionRef}
+          />
+        </div>
 
         {!!errorMessage && <p className="error-message">{errorMessage}</p>}
 
