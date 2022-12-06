@@ -1,0 +1,9 @@
+.fab-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #d63691, #f84c6f);
+}
