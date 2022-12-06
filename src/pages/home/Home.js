@@ -1,4 +1,4 @@
-import { ListTile } from "../list-tile/ListTile";
+import { ListTile } from "./components/list-tile/ListTile";
 import "./Home.css";
 
 export function Home() {
