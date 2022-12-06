@@ -24,9 +24,15 @@ export function ListTile(props) {
             fontSize={"24px"}
             color={"white"}
             opacity={0.65}
+            cursor="pointer"
             onClick={() => navigate(`/detail/${props.name}`)}
           />
-          <AiOutlineDelete opacity={0.8} fontSize={"24px"} color={"#ff4164"} />
+          <AiOutlineDelete
+            opacity={0.8}
+            fontSize={"24px"}
+            color={"#ff4164"}
+            cursor="pointer"
+          />
         </>
       )}
     </div>
