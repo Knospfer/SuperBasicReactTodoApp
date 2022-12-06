@@ -29,7 +29,10 @@ export function rootReducer(state = initialState, action) {
     return { ...state, todoList: state.todoList.splice(index, 1, newTodo) };
   }
   if (action.type === DELETE_TODO) {
-    return { ...state, todoList: state.todoList.splice(action.payload, 1) };
+    return {
+      ...state,
+      todoList: state.todoList.filter((item) => item.id !== action.payload),
+    };
   }
 
   return state;

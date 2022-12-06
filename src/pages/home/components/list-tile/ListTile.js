@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { deleteTodo } from "../../../../store/actions";
+import { store } from "../../../../store/store";
 import "./ListTile.css";
 
 export function ListTile(props) {
@@ -28,6 +30,7 @@ export function ListTile(props) {
             onClick={() => navigate(`/detail/${props.name}`)}
           />
           <AiOutlineDelete
+            onClick={() => store.dispatch(deleteTodo(props.id))}
             opacity={0.8}
             fontSize={"24px"}
             color={"#ff4164"}
